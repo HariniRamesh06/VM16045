@@ -1,0 +1,14 @@
+const API_URL =
+  "http://4.224.186.213/evaluation-service/notifications";
+
+export async function getNotifications() {
+  const response = await fetch(API_URL, {
+    headers: {
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJoYXJpbmlyLmNzZTIzQHZlbHRlY2htdWx0aXRlY2gub3JnIiwiZXhwIjoxNzgxNjc5MzQ5LCJpYXQiOjE3ODE2Nzg0NDksImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiJkY2M4NzI5Ni03MzFhLTRhYTUtODY4NC0wOTYwOGRhODFhNjMiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJoYXJpbmkgciIsInN1YiI6IjZlZjViZDcxLTZiNGMtNGRkMS1iMWM1LTkyZjM3ZWZhZGRiZiJ9LCJlbWFpbCI6ImhhcmluaXIuY3NlMjNAdmVsdGVjaG11bHRpdGVjaC5vcmciLCJuYW1lIjoiaGFyaW5pIHIiLCJyb2xsTm8iOiJ2bTE2MDQ1IiwiYWNjZXNzQ29kZSI6Imp1RnBodiIsImNsaWVudElEIjoiNmVmNWJkNzEtNmI0Yy00ZGQxLWIxYzUtOTJmMzdlZmFkZGJmIiwiY2xpZW50U2VjcmV0IjoiQXpaRW15U2h1UmtSakhFYyJ9.1ooVN8TDD55WqyexTPJt_NvxnDCwRFhQhihXkIGfQ7o"
+    }
+  });
+
+  const data = await response.json();
+
+  return data.notifications || [];
+}
